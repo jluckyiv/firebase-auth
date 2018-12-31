@@ -36,7 +36,7 @@
           setCurrentUser(IS_SIGNED_OUT);
         });
     }
-    updateUI(getCurrentUser());
+    updateUI();
   }
 
   firebase
@@ -78,12 +78,12 @@
     } else {
       // User is not signed in.
     }
-    updateUI(getCurrentUser());
+    updateUI();
   });
 
   const SIGN_IN_BUTTON_ID = "quickstart-sign-in";
 
-  function updateUI(currentUser) {
+  function updateUI() {
     const button = document.getElementById(SIGN_IN_BUTTON_ID);
     function clearStyles() {
       button.classList.remove(
@@ -94,6 +94,7 @@
         "is-warning"
       );
     }
+    const currentUser = getCurrentUser();
     switch (currentUser) {
       case IS_SIGNED_OUT:
         clearStyles();
